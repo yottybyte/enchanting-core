@@ -1,0 +1,8 @@
+server:
+    port: 25565
+    online_mode: false
+    max_players: 10
+    motd: A Minecraft Server
+logger:
+    type: text
+    level: debug

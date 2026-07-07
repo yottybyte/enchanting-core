@@ -1,0 +1,22 @@
+version: "2"
+
+linters:
+  enable:
+    - depguard
+  settings:
+    depguard:
+      rules:
+        domain-pure:
+          files:
+            - "**/internal/domain/**"
+          deny:
+            - pkg: github.com/yottybyte/enchanting-core/internal/adapter
+              desc: "The domain is independent of the adapter"
+            - pkg: github.com/yottybyte/enchanting-core/internal/config
+              desc: "The domain is not aware of the infrastructure/configuration"
+        core-no-adapter:
+          files:
+            - "**/internal/application/**"
+          deny:
+            - pkg: github.com/yottybyte/enchanting-core/internal/adapter
+              desc: "The core is independent of the adapter"
